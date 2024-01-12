@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -83,7 +82,7 @@
     </section>
 
     <footer>
-        <p>For further inquiries, please contact [Your Contact Information].</p>
+        <p>For further inquiries, please contact citrixlabph@gmail.com.</p>
     </footer>
 
 </body>
