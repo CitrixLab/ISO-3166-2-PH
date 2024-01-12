@@ -78,7 +78,7 @@
 
     <section id="license">
         <h2>License</h2>
-        <p>The project is shared under the specified <a href="html://bit.ly/ISO-3166-2-PH-MITLicenseCopyright">license</a>.</p>
+        <p>The project is shared under the specified <a href="/license">license</a>.</p>
     </section>
 
     <footer>
