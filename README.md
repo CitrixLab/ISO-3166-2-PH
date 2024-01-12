@@ -78,11 +78,11 @@
 
     <section id="license">
         <h2>License</h2>
-        <p>The project is shared under the specified <a href="[link]">license</a>.</p>
+        <p>The project is shared under the specified <a href="bit.ly/ISO-3166-2-PH-MITLicenseCopyright">license</a>.</p>
     </section>
 
     <footer>
-        <p>For further inquiries, please contact citrixlabph@gmail.com.</p>
+        <p>For further inquiries, please contact <h2>citrixlabph@gmail.com<h2>.</p>
     </footer>
 
 </body>
