@@ -68,7 +68,7 @@
 
     <section id="contributing">
         <h2>Contributing</h2>
-        <p>Interested contributors can follow the <a href="[link]">Contribution Guidelines</a> to participate in the project.</p>
+        <p>Interested contributors can follow the <a href="Contribution-Guidelines.html">Contribution Guidelines</a> to participate in the project.</p>
     </section>
 
     <section id="changelog">
