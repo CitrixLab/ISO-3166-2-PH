@@ -63,7 +63,7 @@
 
     <section id="getting-started">
         <h2>Getting Started</h2>
-        <p>Instructions on setting up the project locally can be found in the <a href="[link]">Getting Started</a> section of the documentation.</p>
+        <p>Instructions on setting up the project locally can be found in the <a href="Getting-Started.html">Getting Started</a> section of the documentation.</p>
     </section>
 
     <section id="contributing">
