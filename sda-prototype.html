@@ -22,6 +22,7 @@
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
 
+const centerCoordinates = `${latitude}, ${longitude}`;
                 // Create a map centered at the user's location
                 const map = new google.maps.Map(document.getElementById('map'), {
                     center: { lat: latitude, lng: longitude },
@@ -43,5 +44,10 @@
 
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8"></script>
+
+
+    <gmp-map-3d center=centerCoordinates tilt="67.5"></gmp-map-3d>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=<AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8>&v=alpha&libraries=maps3d"></script>
+
 </body>
 </html>
