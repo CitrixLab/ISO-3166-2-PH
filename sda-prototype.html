@@ -2,53 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLA5UMPk0CsbCrqHmMCRykMJEuYWQxP89WCW LwC6GU=" crossorigin=""/>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-    <title>Compressed POI Navigation</title>
-    <meta name="generator" content="Jekyll v3.9.3">
-    <meta property="og:title" content="ISO-3166-2-PH">
-    <meta property="og:locale" content="en_US">
-    <meta name="description" content="The project aims to integrate ISO 3166-2:PH codes into legal databases to enhance the organization and retrieval of information regarding the principal subdivisions of the Philippines. This documentation provides a comprehensive overview of the project, its objectives, implementation plan, and significance in the legal domain.">
-    <meta property="og:description" content="The project aims to integrate ISO 3166-2:PH codes into legal databases to enhance the organization and retrieval of information regarding the principal subdivisions of the Philippines. This documentation provides a comprehensive overview of the project, its objectives, implementation plan, and significance in the legal domain.">
-    <link rel="canonical" href="https://citrixlab.github.io/ISO-3166-2-PH/">
-    <meta property="og:url" content="https://citrixlab.github.io/ISO-3166-2-PH/">
-    <meta property="og:site_name" content="ISO-3166-2-PH">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <meta property="twitter:title" content="ISO-3166-2-PH">
-    <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"WebSite","description":"The project aims to integrate ISO 3166-2:PH codes into legal databases to enhance the organization and retrieval of information regarding the principal subdivisions of the Philippines. This documentation provides a comprehensive overview of the project, its objectives, implementation plan, and significance in the legal domain.","headline":"ISO-3166-2-PH","name":"ISO-3166-2-PH","url":"https://citrixlab.github.io/ISO-3166-2-PH/"}
-    </script>
-    <!-- End Jekyll SEO tag -->
-
-    <style class="anchorjs"></style>
-    <link rel="stylesheet" href="/ISO-3166-2-PH/assets/css/style.css?v=a2d9b1367331272b4d56bf587c9beb2ab1e8a084">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-    <!-- Setup Google Analytics -->
-
-    <!-- You can set your favicon here -->
-    <!-- link rel="shortcut icon" type="image/x-icon" href="/ISO-3166-2-PH/favicon.ico" -->
-
-    <!-- end custom head snippets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Example</title>
     <style>
-        #mapContainer {
-            width: 600px;
+        #map {
             height: 400px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Project Study: Integration of ISO 3166-2:PH Codes in Legal Databases</h1>
-        <h2>SDA Prototype</h2>
-    </header>
-
     <h1>Your Geographical Location</h1>
     <div id="map"></div>
 
@@ -80,52 +43,5 @@
 
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-
-    <div id="mapContainer"></div>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
-    <script>
-        // Sample compressed POI data (replace with Huffman coding logic)
-        const compressedData = "HCNEN";
-
-        // Decoded POI data structure (replace with actual decompression logic)
-        const pois = {
-            "H": { name: "Hospital", coords: [37.7833, -122.4167] },
-            "C": { name: "Coffee Shop", coords: [37.7749, -122.4194] },
-            "N": { name: "Park", coords: [37.7656, -122.4334] },
-            "E": { name: "Restaurant", coords: [37.7782, -122.4064] },
-        };
-
-        const map = L.map('mapContainer').setView([37.7749, -122.4194], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        function decodePOI(code) {
-            // Implement your decompression logic here (e.g., Huffman coding)
-            // For now, a placeholder to simulate potential errors
-            if (code === "X") {
-                throw new Error("Invalid POI code encountered during decompression");
-            }
-            return pois[code];
-        }
-
-        function addPOIMarker(poi) {
-            const marker = L.marker(poi.coords).addTo(map);
-            marker.bindPopup(`<b>${poi.name}</b>`).openPopup();
-        }
-
-        try {
-            for (const code of compressedData) {
-                const poi = decodePOI(code);
-                addPOIMarker(poi);
-            }
-        } catch (error) {
-            console.error("Error decoding POI data:", error.message);
-            // Handle decompression errors gracefully (e.g., display error message to user)
-            alert("Failed to display some POIs due to decompression errors. Check browser console for details.");
-        }
-    </script>
 </body>
-
 </html>
