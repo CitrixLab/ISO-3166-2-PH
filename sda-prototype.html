@@ -12,7 +12,7 @@
         // Sample compressed POI data (replace with Huffman coding logic)
         const compressedData = "HCNEN";
 
-        // Decoded POI data (replace with decompression logic)
+        // Decoded POI data structure (replace with actual decompression logic)
         const pois = {
             "H": { name: "Hospital", coords: [37.7833, -122.4167] },
             "C": { name: "Coffee Shop", coords: [37.7749, -122.4194] },
@@ -27,8 +27,11 @@
         }).addTo(map);
 
         function decodePOI(code) {
-            // Implement your decompression logic here
-            // This example assumes a simple character mapping
+            // Implement your decompression logic here (e.g., Huffman coding)
+            // For now, a placeholder to simulate potential errors
+            if (code === "X") {
+                throw new Error("Invalid POI code encountered during decompression");
+            }
             return pois[code];
         }
 
@@ -37,9 +40,15 @@
             marker.bindPopup(`<b>${poi.name}</b>`).openPopup();
         }
 
-        for (const code of compressedData) {
-            const poi = decodePOI(code);
-            addPOIMarker(poi);
+        try {
+            for (const code of compressedData) {
+                const poi = decodePOI(code);
+                addPOIMarker(poi);
+            }
+        } catch (error) {
+            console.error("Error decoding POI data:", error.message);
+            // Handle decompression errors gracefully (e.g., display error message to user)
+            alert("Failed to display some POIs due to decompression errors. Check browser console for details.");
         }
     </script>
 </body>
