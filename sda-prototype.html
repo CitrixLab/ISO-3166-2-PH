@@ -10,6 +10,9 @@
             width: 100%;
         }
     </style>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147/build/three.min.js"></script>
+
 </head>
 <body>
     <h1>Your Geographical Location</h1>
@@ -46,8 +49,64 @@ const centerCoordinates = `${latitude}, ${longitude}`;
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8"></script>
 
 
-    <gmp-map-3d center=centerCoordinates tilt="67.5"></gmp-map-3d>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=<AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8>&v=alpha&libraries=maps3d"></script>
+ <script>
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Sample population density data (replace with your data)
+const densityData = [[100, 250, 300], [500, 700, 1200], [400, 800, 900]];
+
+const gridSize = densityData.length;
+const cellSize = 1; // Adjust cell size as needed
+
+// Function to create a colored cube based on density
+function createDensityCube(density) {
+  const geometry = new THREE.BoxGeometry(cellSize, cellSize, cellSize);
+  const material = new THREE.MeshBasicMaterial({ color: getDensityColor(density) });
+  const cube = new THREE.Mesh(geometry, material);
+  return cube;
+}
+
+// Function to define color based on density (adjust color mapping as needed)
+function getDensityColor(density) {
+  const colorMap = {
+    low: 0x00ffff, // Light blue for low density
+    medium: 0xffff00, // Yellow for medium density
+    high: 0xff0000 // Red for high density
+  };
+  if (density < 500) {
+    return colorMap.low;
+  } else if (density < 1000) {
+    return colorMap.medium;
+  } else {
+    return colorMap.high;
+  }
+}
+
+// Create and position cubes based on density data
+for (let i = 0; i < gridSize; i++) {
+  for (let j = 0; j < gridSize; j++) {
+    const density = densityData[i][j];
+    const cube = createDensityCube(density);
+    cube.position.set(i * cellSize, j * cellSize, density / 1000); // Scale z-axis based on density
+    scene.add(cube);
+  }
+}
+
+camera.position.z = 5;
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
+animate();
+
+</script>
 
 </body>
 </html>
