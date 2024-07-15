@@ -53,6 +53,20 @@
   frameborder="0" allowfullscreen>
 </iframe>
 
+<div id="mapContainer" style="width: 600px; height: 400px;"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
+    <script>
+        const map = L.map('mapContainer').setView([37.7749, -122.4194], 13);
+
+        // OpenStreetMap tile server
+        const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        const osmTileLayer = L.tileLayer(osmUrl, {attribution: osmAttrib});
+
+        osmTileLayer.addTo(map);
+    </script>
+
     <div id="mapContainer"></div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
     <script>
