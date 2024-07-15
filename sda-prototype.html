@@ -57,6 +57,53 @@ const centerCoordinates = `${latitude}, ${longitude}`;
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8"></script>
 
+
+
+<h1>Ramsey Numbers (Sample Data)</h1>
+    <table id="ramsey-data"></table>
+ 
+
+<script>
+const table = document.getElementById('ramsey-data');
+
+// Sample Ramsey number data (replace with your actual data)
+const ramseyData = [
+  { n1: 3, n2: 3, r: 6 },
+  { n1: 4, n2: 4, r: 18 },
+  { n1: 5, n2: 5, r: unknown }, // Unknown value for demonstration
+  { n1: 6, n2: 6, r: 32 },
+];
+
+function createTableHeader() {
+  const headerRow = table.insertRow();
+  const th1 = headerRow.insertCell();
+  const th2 = headerRow.insertCell();
+  const th3 = headerRow.insertCell();
+  th1.textContent = 'n1';
+  th2.textContent = 'n2';
+  th3.textContent = 'R(n1, n2)';
+}
+
+function createDataRow(data) {
+  const row = table.insertRow();
+  const cell1 = row.insertCell();
+  const cell2 = row.insertCell();
+  const cell3 = row.insertCell();
+  cell1.textContent = data.n1;
+  cell2.textContent = data.n2;
+  cell3.textContent = data.r;
+  if (data.r === 'unknown') {
+    cell3.style.fontStyle = 'italic'; // Style unknown values differently
+  }
+}
+
+createTableHeader();
+ramseyData.forEach(data => createDataRow(data));
+</script>
+
+
+
+<h1>Sample Spatial Data Architecture</h1>
  <script>
 
 const scene = new THREE.Scene();
@@ -114,49 +161,5 @@ function animate() {
 
 animate();
 </script>
-
-
-<h1>Ramsey Numbers (Sample Data)</h1>
-    <table id="ramsey-data"></table>
- 
-
-<script>
-const table = document.getElementById('ramsey-data');
-
-// Sample Ramsey number data (replace with your actual data)
-const ramseyData = [
-  { n1: 3, n2: 3, r: 6 },
-  { n1: 4, n2: 4, r: 18 },
-  { n1: 5, n2: 5, r: unknown }, // Unknown value for demonstration
-  { n1: 6, n2: 6, r: 32 },
-];
-
-function createTableHeader() {
-  const headerRow = table.insertRow();
-  const th1 = headerRow.insertCell();
-  const th2 = headerRow.insertCell();
-  const th3 = headerRow.insertCell();
-  th1.textContent = 'n1';
-  th2.textContent = 'n2';
-  th3.textContent = 'R(n1, n2)';
-}
-
-function createDataRow(data) {
-  const row = table.insertRow();
-  const cell1 = row.insertCell();
-  const cell2 = row.insertCell();
-  const cell3 = row.insertCell();
-  cell1.textContent = data.n1;
-  cell2.textContent = data.n2;
-  cell3.textContent = data.r;
-  if (data.r === 'unknown') {
-    cell3.style.fontStyle = 'italic'; // Style unknown values differently
-  }
-}
-
-createTableHeader();
-ramseyData.forEach(data => createDataRow(data));
-</script>
-
 </body>
 </html>
