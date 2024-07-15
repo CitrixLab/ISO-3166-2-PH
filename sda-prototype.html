@@ -73,9 +73,9 @@ function createDensityCube(density) {
 // Function to define color based on density (adjust color mapping as needed)
 function getDensityColor(density) {
   const colorMap = {
-    low: 0x00ffff, // Light blue for low density
-    medium: 0xffff00, // Yellow for medium density
-    high: 0xff0000 // Red for high density
+    low: #add8e6, // Light blue for low density
+    medium: #fffa99, // Yellow for medium density
+    high: #ff595e // Red for high density
   };
   if (density < 500) {
     return colorMap.low;
