@@ -48,8 +48,6 @@ const centerCoordinates = `${latitude}, ${longitude}`;
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8"></script>
 
-<svg id="density-map" width="600" height="400"></svg>
-
  <script>
 
 const scene = new THREE.Scene();
@@ -106,8 +104,12 @@ function animate() {
 }
 
 animate();
+</script>
 
 
+<svg id="density-map" width="600" height="400"></svg>
+
+<script>
 const svg = document.getElementById('density-map');
 const svgNS = 'http://www.w3.org/2000/svg'; // SVG namespace
 
@@ -152,6 +154,5 @@ for (let i = 0; i < gridSize; i++) {
   }
 }
 </script>
-
 </body>
 </html>
