@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compressed POI Navigation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLA5UMPk0CsbCrqHmMCRykMJEuYWQxP89WCW LwC6GU=" crossorigin=""/>
+</head>
+<body>
+    <div id="mapContainer"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
+    <script>
+        // Sample compressed POI data (replace with Huffman coding logic)
+        const compressedData = "HCNEN";
+
+        // Decoded POI data (replace with decompression logic)
+        const pois = {
+            "H": { name: "Hospital", coords: [37.7833, -122.4167] },
+            "C": { name: "Coffee Shop", coords: [37.7749, -122.4194] },
+            "N": { name: "Park", coords: [37.7656, -122.4334] },
+            "E": { name: "Restaurant", coords: [37.7782, -122.4064] },
+        };
+
+        const map = L.map('mapContainer').setView([37.7749, -122.4194], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function decodePOI(code) {
+            // Implement your decompression logic here
+            // This example assumes a simple character mapping
+            return pois[code];
+        }
+
+        function addPOIMarker(poi) {
+            const marker = L.marker(poi.coords).addTo(map);
+            marker.bindPopup(`<b>${poi.name}</b>`).openPopup();
+        }
+
+        for (const code of compressedData) {
+            const poi = decodePOI(code);
+            addPOIMarker(poi);
+        }
+    </script>
+</body>
+</html>
