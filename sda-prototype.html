@@ -48,6 +48,7 @@ const centerCoordinates = `${latitude}, ${longitude}`;
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuG8DG7xPrUlgSJlkV2me2QaV4LswBFz8"></script>
 
+<svg id="density-map" width="600" height="400"></svg>
 
  <script>
 
@@ -106,6 +107,50 @@ function animate() {
 
 animate();
 
+
+const svg = document.getElementById('density-map');
+const svgNS = 'http://www.w3.org/2000/svg'; // SVG namespace
+
+// Sample population density data (replace with your data)
+const densityData = [[100, 250, 300], [500, 700, 1200], [400, 800, 900]];
+
+const gridSize = densityData.length;
+const cellSize = 40; // Adjust cell size as needed
+const colorMap = {
+  low: '#add8e6', // Light blue for low density
+  medium: '#fffa99', // Yellow for medium density
+  high: '#ff595e' // Red for high density
+};
+
+function getDensityColor(density) {
+  if (density < 500) {
+    return colorMap.low;
+  } else if (density < 1000) {
+    return colorMap.medium;
+  } else {
+    return colorMap.high;
+  }
+}
+
+// Function to create a colored rectangle for each cell
+function createDensityRect(density, x, y) {
+  const rect = document.createElementNS(svgNS, 'rect');
+  rect.setAttribute('x', x);
+  rect.setAttribute('y', y);
+  rect.setAttribute('width', cellSize);
+  rect.setAttribute('height', cellSize);
+  rect.setAttribute('fill', getDensityColor(density));
+  return rect;
+}
+
+// Create and append rectangles based on density data
+for (let i = 0; i < gridSize; i++) {
+  for (let j = 0; j < gridSize; j++) {
+    const density = densityData[i][j];
+    const rect = createDensityRect(density, j * cellSize, i * cellSize);
+    svg.appendChild(rect);
+  }
+}
 </script>
 
 </body>
