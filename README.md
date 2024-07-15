@@ -40,7 +40,7 @@
             </li>
             <li><strong>Prototype:</strong>
                 <ul>
-                    <li><a href="sda-prototype.html">sda-prototype.html</a>:</strong></li>
+                    <li><a href="sda-prototype.html">sda-prototype.html</a></li>
                 </ul>
             </li>
         </ol>
