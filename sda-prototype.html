@@ -36,22 +36,18 @@
     <!-- link rel="shortcut icon" type="image/x-icon" href="/ISO-3166-2-PH/favicon.ico" -->
 
     <!-- end custom head snippets -->
-<style>
-        #map {
+    <style>
+        #mapContainer {
+            width: 600px;
             height: 400px;
-            width: 100%;
         }
     </style>
 </head>
-
-
 <body>
-
     <header>
         <h1>Project Study: Integration of ISO 3166-2:PH Codes in Legal Databases</h1>
-<h2>SDA Prototype</h2>
+        <h2>SDA Prototype</h2>
     </header>
-    
 
     <h1>Your Geographical Location</h1>
     <div id="map"></div>
@@ -85,20 +81,6 @@
     <!-- Include the Google Maps JavaScript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 
-<div id="mapContainer" style="width: 600px; height: 400px;"></div>
-
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
-    <script>
-        const map = L.map('mapContainer').setView([37.7749, -122.4194], 13);
-
-        // OpenStreetMap tile server
-        const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        const osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-        const osmTileLayer = L.tileLayer(osmUrl, {attribution: osmAttrib});
-
-        osmTileLayer.addTo(map);
-    </script>
-
     <div id="mapContainer"></div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwzEOInZqBfcYEvaHgATQjtT/HcQ=" crossorigin=""></script>
     <script>
@@ -116,7 +98,7 @@
         const map = L.map('mapContainer').setView([37.7749, -122.4194], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         function decodePOI(code) {
@@ -145,4 +127,5 @@
         }
     </script>
 </body>
+
 </html>
